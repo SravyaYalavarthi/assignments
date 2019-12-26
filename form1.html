@@ -9,14 +9,14 @@
 </script>
 <div class="container">
             
-<form class="form-horizontal" role="form" autocomplete="off" onsubmit="return formsubmittion()">
+<form class="form-horizontal" role="form" autocomplete="off" onsubmit="return formValidation(this)">
    
 <h3>New Hire Registry</h3> 
 <div class="row"> 
 <div class="col-sm-2"><label>Name</label>
 </div>
 <div class="col-sm-4">          
-<input id="txtName" onclick="userValidation" type="text" placeholder="Enter your Name" pattern="[A-Z]{1}[a-zA-Z]+" class="name" size="10" minlength="3" maxlength="10"autofocus required>
+<input id="txtName" oninput="userValidation()" type="text">
     </div>
 <span id="errorName"></span>	
 </div>
@@ -101,6 +101,7 @@
 <div class="col-sm-2">       
 <input type="checkbox" class="Language" value="js">JS                             
 </div> 
+<span id="errorLanguage"></span>
 </div>
 <div class="row">
 <div class="col-sm-2">
@@ -113,10 +114,12 @@
 <label>state</label>
 </div>
 <div class="col-sm-4">
-<select class="state">
-<option value="kar">Karnataka</option>
-<option value="AP">Andhra Pradesh</option>
+<select id="mystate">
+<option value="0">select</option>
+<option class="state" value="kar">Karnataka</option>
+<option class="state" value="ap">Andhra Pradesh</option>
 </select></div>
+<span id="errorDropDown"></span>
 </div>
 <div class="row">
 <div class="col-sm-2">
