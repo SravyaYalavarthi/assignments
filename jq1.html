@@ -1,0 +1,20 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</script>
+<body>
+<input type="text" id="id1">
+<input type="button" id="btn" value="submit">
+<span id="txt"></span>
+<script>
+$(document).ready(
+function()
+{
+$("#btn").click(
+function(){
+$("#txt").text($("#id1").val());
+});
+});
+</script>
+</body>
+</html>

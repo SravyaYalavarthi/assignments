@@ -1,0 +1,25 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</script>
+<body>
+first name:<input type="text" id="id1">
+<input type="button" id="btn" value="submit">
+<span id="txt"></span>
+<script>
+$(document).ready(
+function()
+{
+$("#id1").focus(
+function(){
+$("#id1").css({"background-color":"red"});
+});
+$("#id1").blur(
+function(){
+$("#id1").css({"background-color":"white"});
+});
+
+});
+</script>
+</body>
+</html>
