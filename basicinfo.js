@@ -2,48 +2,96 @@ function mailValidation()
 {
 var x=document.getElementById("eid").value;
 var pattern="^[A-Za-z0-9]+[@]{1}[a-z]+(.com|.co.in.|.in)$";
-if(x==null||x=="")
+if(x==null||x==""){
 document.getElementById("errormail").innerHTML="plz enter your email";
-else
+return false;
+}
+else if(!x.match(pattern)){
+document.getElementById("errormail").innerHTML="write in correct format";
+return false;
+}
+else{
 document.getElementById("errormail").innerHTML="";
+return true;
+}
 }
 function pwdValidation()
 {
 	var Value=document.getElementById("pid").value;
 	var pwdPattern="^[A-Za-z0-9@!#$&*]{8,}$";
-	if(!Value.match(pwdPattern))
-		document.getElementById("errorpwd").innerHTML="password should contain atleast 8 characters";
-	else
-		document.getElementById("errorpwd").innerHTML="";
+	if(!Value.match(pwdPattern)){
+		document.getElementById("errorpwd").innerHTML="password should contain atleast 8 characters"
+return false;
+}
+	else{
+document.getElementById("errorpwd").innerHTML="";
+return true;
+}
 }
 function confirmpwdValidation()
 {
 	var password=document.getElementById("pid").value;
 	var confirmpwd=document.getElementById("pid1").value;
-	if(!password.match(confirmpwd))
+	if(!password.match(confirmpwd)){
 	document.getElementById("errorpwd1").innerHTML="plz match the password";
-else
+return false;
+}
+else{
 	document.getElementById("errorpwd1").innerHTML="";
+return true;
+}
 }
 function userValidation()
 {
 	var userValue=document.getElementById("txtname").value;
 	var namePattern="^[A-Za-z]+$";
-	if(!userValue.match(namePattern))
+	if(!userValue.match(namePattern)){
 		document.getElementById("errorname").innerHTML="name should be alphabets";
-	else
-		document.getElementById("errorname").innerHTML="";
+return false;
 }
-function ageValidation()
+	else{
+		document.getElementById("errorname").innerHTML="";
+return true;
+}
+}
+function fnameValidation()
 {
-var x=document.getElementById("num").value;
-var valuePattern="^[0-9]{1,3}$";
-if(x==null||x=="")
-document.getElementById("errorage").innerHTML="plz enter your age";
-else if(!x.match(valuePattern))
-document.getElementById("errorage").innerHTML="age should be in digits";
-else
-document.getElementById("errorage").innerHTML="";
+	var userValue=document.getElementById("fname").value;
+	var namePattern="^[A-Za-z]+$";
+	if(!userValue.match(namePattern)){
+		document.getElementById("errorFname").innerHTML="name should be alphabets";
+return false;
+}
+	else{
+		document.getElementById("errorFname").innerHTML="";
+return true;
+}
+}
+function mnameValidation()
+{
+	var userValue=document.getElementById("mname").value;
+	var namePattern="^[A-Za-z]+$";
+	if(!userValue.match(namePattern)){
+		document.getElementById("errorMname").innerHTML="name should be alphabets";
+return false;
+}
+	else{
+		document.getElementById("errorMname").innerHTML="";
+return true;
+}
+}
+
+function dtValidation()
+{
+var x=document.getElementById("dt").value;
+if(x==null||x==""){
+document.getElementById("errordt").innerHTML="plz enter your DOB";
+return false;
+}
+else{
+document.getElementById("errordt").innerHTML="";
+return true;
+}
 }
 function genderValidation()
 {
@@ -64,60 +112,48 @@ function genderValidation()
 		return true;
 	}
 }
-function weightValidation()
+function addrValidation()
 {
-var x=document.getElementById("wth").value;
-var valuePattern="^[0-9]{1,3}$";
-if(x==null||x=="")
-	document.getElementById("errorwth").innerHTML="plz enter weight";
-else if(!x.match(valuePattern))
-document.getElementById("errorwth").innerHTML="weight should be in digits";
-else
-document.getElementById("errorwth").innerHTML="";
+var x=document.getElementById("addr").value;
+if(x==null||x==""){
+document.getElementById("errorAddr").innerHTML="plz enter your address";
+return false;
 }
-
-function planValidation()
-{
-	var elements=document.getElementsByName("weight");
-	var count=0;
-	for(var i=0;i<elements.length;i++)
-	{
-		if(elements[i].checked)
-			count++;
-	}
-	if(count==0)
-	{
-		document.getElementById("errorwt").innerHTML="select atleast one plan";
-		return false;
-	}
-	else{
-		document.getElementById("errorwt").innerHTML="";
-		return true;
-	}
+else{
+document.getElementById("errorAddr").innerHTML="";
+return true;
 }
-function heightValidation()
+}
+function numValidation()
 {
-var x=document.getElementById("ht").value;
-var valuePattern="^[0-9]{1}[']{1}[0-9]{1}$";
-if(x==0||x==null)
-document.getElementById("errorht").innerHTML="plz enter your height";
-else if(!x.match(valuePattern))
-document.getElementById("errorht").innerHTML="height should be in n'n format";
-else
-document.getElementById("errorht").innerHTML="";
+var x=document.getElementById("num").value;
+var pattern="^[6-9]{1}[0-9]{9}$";
+if(x==0||x==""){
+document.getElementById("errorNum").innerHTML="plz enter your phno";
+return false;
+}
+else if(!x.match(pattern)){
+document.getElementById("errorNum").innerHTML="plz enter valid phno";
+return false;
+}
+else{
+document.getElementById("errorNum").innerHTML="";
+return true;
+}
 }
 function formValidation()
 {
 a=mailValidation();
 b=pwdValidation();
 c=confirmpwdValidation();
-d=ageValidation();
-e=userValidation();
-f=genderValidation();
-g=weightValidation();
-h=heightValidation();
-i=planValidation();
-if(a&&b&&c&&d&&e&&f&&g&&h&&i)
+d=userValidation();
+e=fnameValidation();
+f=mnameValidation();
+g=dtValidation();
+h=genderValidation();
+i=addrValidation();
+j=numValidation();
+if(a&&b&&c&&d&&e&&f&&g&&h&&i&&j)
 return true;
 else
 return false;
